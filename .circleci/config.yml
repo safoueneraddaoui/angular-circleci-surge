@@ -1,9 +1,10 @@
+#try to change it from you outputPath "dist/angular-app",
 version: 2.1
 orbs:
   node: circleci/node@1.1.6
 jobs:
   build-and-test:
-    working_directory: ~/angular-app
+    working_directory: ~/angular-app  #try to change it from you outputPath "dist/angular-app"
     docker:
       - image: circleci/node:12-browsers
     steps:
@@ -18,7 +19,7 @@ jobs:
       #- run: npm run test -- --no-watch --no-progress --browsers=ChromeHeadlessCI
       - run: npm run build
       - deploy:
-          command: |
+          command: |  #try to change it from you outputPath "dist/angular-app",
             ./node_modules/.bin/surge --project ~/angular-app/dist/angular-app --domain safouene.surge.sh
 workflows:
     build-and-test:
